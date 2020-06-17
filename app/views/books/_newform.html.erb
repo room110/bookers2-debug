@@ -1,0 +1,32 @@
+
+
+<%= form_for(book) do |f| %>
+
+<% if book.errors.any? %>
+<table>
+  <font color="red">
+       <p>2 errors prohibited this book from being saved:</p>
+         <ul>
+            <li>Title can't be blank</li>
+            <li>opinion can't be blank</li>
+            <li>opinion is too long</li>
+         </ul>
+    </font>
+</table>
+<% end %>
+
+
+	<div class="field row">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "col-xs-12 book_title" %>
+	</div>
+
+	<div class="field row">
+		<%= f.label :opinion %> <!-- ここを変更 -->
+		<%= f.text_area :body, class: "col-xs-12 book_body" %>
+	</div>
+
+	<div class="actions row">
+		<%= f.submit class: "btn btn-primary col-xs-12" %>
+	</div>
+<% end %>
